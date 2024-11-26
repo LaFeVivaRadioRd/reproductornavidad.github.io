@@ -45,7 +45,9 @@ header {
     right: 0;
     width: 250px; /* Ancho ajustado para mayor accesibilidad */
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background-image: url(imagen/fondo.JPG); /* Agrega aquí la ruta de tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el área */
+    background-position: center; /* Centra la imagen */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -56,10 +58,25 @@ header {
     transition: visibility 0s, opacity 0.3s ease;
 }
 
+/* Agregar capa oscura sobre la imagen */
+#social-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+    z-index: 1; /* Asegura que el fondo oscuro quede debajo de los íconos */
+}
+
+/* Redefinir el contenedor de las redes sociales para que el contenido se vea encima de la capa oscura */
 #social-menu ul {
     list-style: none;
     margin: 0;
     padding: 20px 0; /* Ajustado para dar espacio */
+    position: relative; /* Asegura que los íconos queden sobre la capa oscura */
+    z-index: 2;
 }
 
 #social-menu ul li {
@@ -95,6 +112,24 @@ header {
 .social-visible {
     visibility: visible;
     opacity: 1;
+}
+
+/* Botón de cierre */
+#social-menu .close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+#social-menu .close-btn:hover {
+    color: #ff5722; /* Cambio de color al pasar el mouse */
 }
 
 /* Main Content */
@@ -212,4 +247,20 @@ footer {
 /* Cambiar solo el color de la letra (texto) del footer */
 footer * {
     color: white; /* Esto aplicará el color blanco a todo el texto dentro del footer */
+}
+
+/* Estilo para el texto con fondo para mejorar visibilidad */
+.text-background {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semi-transparente */
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.5rem; /* Tamaño de fuente ajustado */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la visibilidad */
+}
+
+.text-background h1,
+.text-background h2,
+.text-background p {
+    margin: 0;
 }
