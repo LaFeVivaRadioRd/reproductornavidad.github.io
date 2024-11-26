@@ -21,11 +21,6 @@
             height: auto;
         }
 
-        /* Efecto hover: cuando el mouse pasa sobre el botón */
-        #menu-btn:hover #menu-icon {
-            content: url('imagen/menunaranja.png');
-        }
-
         /* Estilo para el reloj */
         #clock {
             position: absolute;
@@ -54,6 +49,11 @@
                 transform: translateY(10px);
                 opacity: 0;
             }
+        }
+
+        /* Estilo para ocultar el menú social */
+        .social-hidden {
+            display: none;
         }
     </style>
 </head>
@@ -92,8 +92,8 @@
                 <li><a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
                 <li><a href="https://wa.me/52361079311" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
                 <li><a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                <button id="close-social" aria-label="Cerrar menú social">Cerrar</button>
             </ul>
-            <button id="close-social" aria-label="Cerrar menú social">Cerrar</button>
         </div>
     </div>
 
@@ -101,8 +101,8 @@
         // Script para cambiar el ícono de la hamburguesa al hacer clic
         const menuBtn = document.getElementById('menu-btn');
         const menuIcon = document.getElementById('menu-icon');
-        const closeSocialBtn = document.getElementById('close-social');
         const socialMenu = document.getElementById('social-menu');
+        const closeSocialBtn = document.getElementById('close-social');
 
         menuBtn.addEventListener('click', () => {
             if (menuIcon.src.includes('menublanco.png')) {
@@ -114,10 +114,10 @@
             }
         });
 
-        // Al cerrar el menú, restablecer el ícono a blanco
+        // Función para cerrar el menú social y regresar el ícono a blanco
         closeSocialBtn.addEventListener('click', () => {
-            menuIcon.src = 'imagen/menublanco.png'; // Cambiar a menublanco.png
-            socialMenu.classList.add('social-hidden'); // Ocultar el menú de redes sociales
+            socialMenu.classList.add('social-hidden');
+            menuIcon.src = 'imagen/menublanco.png'; // Volver a menublanco.png cuando se cierre el menú
         });
 
         // Función para actualizar la hora
