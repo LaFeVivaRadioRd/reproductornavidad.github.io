@@ -208,3 +208,8 @@ footer {
     padding: 10px;
     box-shadow: inset 5px 5px 15px #121212, inset -5px -5px 15px #3a3a3a;
 }
+
+/* Cambiar solo el color de la letra (texto) del footer */
+footer * {
+    color: white; /* Esto aplicará el color blanco a todo el texto dentro del footer */
+}
