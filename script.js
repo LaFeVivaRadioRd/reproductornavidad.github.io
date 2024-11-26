@@ -30,16 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.volume = e.target.value;  // Ajusta el volumen según el slider
     });
 
-    // Abrir/cerrar menú de redes sociales
+    // Abrir menú de redes sociales
     menuButton.addEventListener('click', () => {
         socialMenu.classList.add('social-visible');
         socialMenu.style.visibility = 'visible'; // Asegura que sea visible
-        socialMenu.style.opacity = '1'; // Cambia la opacidad a 1
+        socialMenu.style.opacity = '1'; // Cambia la opacidad a 1 para mostrar el menú
     });
 
+    // Cerrar menú de redes sociales
     closeSocialButton.addEventListener('click', () => {
         socialMenu.classList.remove('social-visible');
         socialMenu.style.visibility = 'hidden'; // Oculta el menú
-        socialMenu.style.opacity = '0'; // Cambia la opacidad a 0
+        socialMenu.style.opacity = '0'; // Cambia la opacidad a 0 para ocultarlo
     });
 });
